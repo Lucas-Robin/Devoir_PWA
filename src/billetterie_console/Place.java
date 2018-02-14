@@ -1,12 +1,12 @@
 package billetterie_console;
 
-import java.util.ArrayList;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class Place 
 {
-  String type, // Salle de concer, lieu plein air...  
+  String type, // Salle de concert, lieu plein air...  
          name, 
          phonenumber, 
          mail, 
