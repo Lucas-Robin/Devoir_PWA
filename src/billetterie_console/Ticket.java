@@ -4,12 +4,13 @@ import java.time.LocalDate;
 
 public class Ticket
 {
-  String validationCode, cat, state, commentary;
-  int price; // en centimes
-  Show show;
-  LocalDate buyDate;
-  Client buyer;
+	private String validationCode, cat, state, commentary;
+	private int price; // en centimes
+	private Show show;
+	private LocalDate buyDate;
+	private Client buyer;
   
+  /************************ Constructors ************************/
   // Constructor for common use
   public Ticket(String validationCode, String cat, String commentary, int price, Show show)
   {
@@ -21,7 +22,6 @@ public class Ticket
     this.show = show;
   }
 
-  // Constructor for automated framework
   public Ticket(String validationCode, String cat, String state, String commentary, int price, Show show,
       LocalDate buyDate, Client buyer)
   {
@@ -115,7 +115,20 @@ public class Ticket
   {
     this.buyer = buyer;
   }
+
+  @Override
+  public String toString()
+  {
+    return "Ticket [validationCode=" + validationCode + ", cat=" + cat + ", state=" + state + ", commentary="
+        + commentary + ", price=" + price + ", show=" + show.print() + ", buyDate=" + buyDate + ", buyer=" + buyer + "]";
+  }
  
+  public String print()
+  {
+    return "Ticket [validationCode=" + validationCode + ", cat=" + cat + ", state=" + state + ", commentary="
+        + commentary + ", price=" + price + ", buyDate=" + buyDate + ", buyer=" + buyer + "]";
+  }
+  
   
   
 }

@@ -2,8 +2,9 @@ package billetterie_console;
 
 public class PersonArtist extends  Artist
 {
-  String lastname, firstname, sex, role;
-
+  private String lastname, firstname, sex, role;
+  
+  /************************ Constructors ************************/
   public PersonArtist(String name, String country, String genre, String lastname, String firstname, String sex,
       String role)
   {
@@ -13,8 +14,17 @@ public class PersonArtist extends  Artist
     this.sex = sex;
     this.role = role;
   }
+  
+  
 
-  @Override
+  public PersonArtist()
+{
+	super();
+}
+
+
+
+@Override
   public int hashCode()
   {
     final int prime = 31;
@@ -52,6 +62,8 @@ public class PersonArtist extends  Artist
     return true;
   }
 
+  	
+  /********************** Getters setters ***********************/
   public String getLastname()
   {
     return lastname;
@@ -91,7 +103,15 @@ public class PersonArtist extends  Artist
   {
     this.role = role;
   }
-  
+
+
+
+@Override
+public String toString()
+{
+	return "PersonArtist [lastname=" + lastname + ", firstname=" + firstname + ", sex=" + sex + ", role=" + role
+			+ ", name=" + name + ", country=" + country + ", genre=" + genre + "]";
+}
   
   
 }

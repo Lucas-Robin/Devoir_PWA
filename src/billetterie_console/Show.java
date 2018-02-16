@@ -1,18 +1,21 @@
 package billetterie_console;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Show
 {
-  String name, commentary;
-  LocalDateTime date;
-  Set<Artist> artistsList;
-  ShowOrganisator organisator;
-  Place place;
-  Set<Ticket> ticketsList;
-  
+  private String name, commentary;
+  private LocalDateTime date;
+  private Set<Artist> artistsList;
+  private ShowOrganisator organisator;
+  private Place place;
+  private Set<Ticket> ticketsList;
+
+  /************************ Constructors ************************/
   // Constructor for common use
   public Show(String name, String commentary, LocalDateTime date, ShowOrganisator organisator, Place place)
   {
@@ -21,12 +24,14 @@ public class Show
     this.commentary = commentary;
     this.date = date;
     this.organisator = organisator;
+    
     this.place = place;
+    place.addShow(this);    
+    
     this.artistsList = new HashSet<Artist>();
     this.ticketsList = new HashSet<Ticket>();
   }
 
-  //Constructor for automated framework
   public Show(String name, String commentary, LocalDateTime date, Set<Artist> artistsList, ShowOrganisator organisator,
       Place place, Set<Ticket> ticketsList)
   {
@@ -36,10 +41,22 @@ public class Show
     this.date = date;
     this.artistsList = artistsList;
     this.organisator = organisator;
+    
     this.place = place;
+    place.addShow(this);
+    
     this.ticketsList = ticketsList;
   }
+  
+  public Show()
+  {
+	super();
+  }
 
+  
+  
+  
+  /********************** Getters setters ***********************/
   public String getName()
   {
     return name;
@@ -98,6 +115,7 @@ public class Show
   public void setPlace(Place place)
   {
     this.place = place;
+    place.addShow(this);
   }
 
   public Set<Ticket> getTicketsList()
@@ -111,6 +129,31 @@ public class Show
   }
   
   
+
+  @Override
+  public String toString()
+  {
+    return "Show [name=" + name + ", commentary=" + commentary + ", date=" + 
+           date.format(DateTimeFormatter.ofPattern("EEEE dd MMM yyyy HH:mm")) + ",\n\t artistsList=" + artistsList
+           + ",\n\t organisator=" + organisator + ", place=" + place.print() + ",\n\t ticketsList=" + 
+           ticketsList.stream().map((ticket) -> ticket.print()).collect(Collectors.joining(",\n\t\t")) + "]";
+  }
   
+  public String print()
+  { 
+    return "Show [name=" + name + ", commentary=" + commentary + ", date=" + 
+           date.format(DateTimeFormatter.ofPattern("EEEE dd MMM yyyy HH:mm")) + ",\n\t artistsList=" + artistsList + 
+           ",\n\t organisator=" + organisator + "]";
+  }
+  
+  public void addArtist(Artist newArtist)
+  {
+    this.artistsList.add(newArtist);
+  }
+
+  public void removeArtist(Artist artist2Remove)
+  {
+    this.artistsList.remove(artist2Remove);
+  }
   
 }

@@ -3,20 +3,22 @@ package billetterie_console;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Place 
 {
-  String type, // Salle de concert, lieu plein air...  
-         name, 
-         phonenumber, 
-         mail, 
-         infosPMR, 
-         commentary;
-  int capacity;
-  Set<Show> showList;
+  private String type, // Salle de concert, lieu plein air...  
+         		 name, 
+         		 phonenumber, 
+         		 mail, 
+         		 infosPMR, 
+         		 commentary;
+  private int capacity;
+  private Set<Show> showList;
   
+  /************************ Constructors ************************/
   // Constructor for common use
-  public Place(String type, String name,int capacity, String phonenumeber, String mail, String infosPMR, String commentary)
+  public Place(String type, String name, int capacity, String phonenumeber, String mail, String infosPMR, String commentary)
   {
     super();
     this.type = type;
@@ -29,7 +31,6 @@ public class Place
     this.showList = new HashSet<Show>();
   }
 
-  //Constructor for automated framework
   public Place(String type, String name, String phonenumber, String mail, String infosPMR, String commentary,
       int capacity, Set<Show> showList)
   {
@@ -44,7 +45,12 @@ public class Place
     this.showList = showList;
   }
 
-  @Override
+  public Place()
+  {
+	super();
+  }
+
+@Override
   public int hashCode()
   {
     final int prime = 31;
@@ -99,6 +105,8 @@ public class Place
     return true;
   }
 
+  
+  /********************** Getters setters ***********************/
   public String getType()
   {
     return type;
@@ -180,7 +188,28 @@ public class Place
   }
   
   
+  public void addShow(Show newShow)
+  {
+	  this.showList.add(newShow);
+  }
   
-  
+  public void removeShow(Show show2Remove)
+  {
+	  this.showList.remove(show2Remove);
+  }
+
+@Override
+public String toString()
+{
+	return "Place [type=" + type + ", name=" + name + ", phonenumber=" + phonenumber + ", mail=" + mail + ", infosPMR=" +
+	       infosPMR + ", commentary=" + commentary + ", capacity=" + capacity + ",\n\t showList=" + 
+	       showList.stream().map((show) -> show.print()).collect(Collectors.joining(",\n\t\t")) + "]";
+}
+
+public String print()
+{
+  return "Place [type=" + type + ", name=" + name + ", phonenumber=" + phonenumber + ", mail=" + mail + ", infosPMR="
+      + infosPMR + ", commentary=" + commentary + ", capacity=" + capacity + "]";
+}
 
 }

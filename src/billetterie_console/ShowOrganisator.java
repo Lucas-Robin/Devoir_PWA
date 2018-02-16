@@ -2,8 +2,9 @@ package billetterie_console;
 
 public class ShowOrganisator
 {
-  String name, mail;
+	private String name, mail;
 
+  /************************ Constructors ************************/
   public ShowOrganisator(String name, String mail)
   {
     super();
@@ -11,6 +12,14 @@ public class ShowOrganisator
     this.mail = mail;
   }
 
+  public ShowOrganisator()
+  {
+	super();
+  }
+
+
+  
+  /********************** Getters setters ***********************/
   public String getName()
   {
     return name;
@@ -58,6 +67,14 @@ public class ShowOrganisator
     } else if (!name.equals(other.name)) return false;
     return true;
   }
+
+  @Override
+  public String toString()
+  {
+    return "ShowOrganisator [name=" + name + ", mail=" + mail + "]";
+  }
+  
+  
   
   
 }

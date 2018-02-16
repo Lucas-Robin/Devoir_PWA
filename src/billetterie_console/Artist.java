@@ -2,8 +2,9 @@ package billetterie_console;
 
 public class Artist
 {
-  String name, country, genre;
+  protected String name, country, genre;
 
+  /************************ Constructors ************************/
   public Artist(String name, String country, String genre)
   {
     super();
@@ -11,7 +12,16 @@ public class Artist
     this.country = country;
     this.genre = genre;
   }
+  
+  public Artist()
+  {
+	super();
+  }
 
+
+
+
+/********************** Getters setters ***********************/
   public String getName()
   {
     return name;
@@ -75,10 +85,6 @@ public class Artist
     return true;
   }
 
-  public Artist()
-  {
-    
-  }
-  
+
   
 }

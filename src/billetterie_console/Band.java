@@ -1,17 +1,36 @@
 package billetterie_console;
 
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "Band")
 public class Band extends  Artist
 {
-  Set<PersonArtist> members;
+  private Set<PersonArtist> members;
 
+  /************************ Constructors ************************/
   public Band(String name, String country, String genre, Set<PersonArtist> members)
   {
     super(name, country, genre);
     this.members = members;
   }
+    
+  public Band(String name, String country, String genre)
+  {
+	super(name, country, genre);
+	this.members = new HashSet<PersonArtist>();
+  }
 
+  public Band()
+  {
+	super();
+	this.members = new HashSet<PersonArtist>();
+  }
+
+  
+  /********************** Getters setters ***********************/
   public Set<PersonArtist> getMembers()
   {
     return members;
@@ -21,6 +40,23 @@ public class Band extends  Artist
   {
     this.members = members;
   }
+  
+  
+
+  public void addMember(PersonArtist newMember)
+  {
+	  // TODO: Add exception for member already in the band
+	  this.members.add(newMember);  
+  }
+  
+  public void removeMember(PersonArtist member2Remove)
+  {
+	  // TODO: Add exception for member already in the band
+	  this.members.remove(member2Remove);
+  }
+  
+  
+  
 
   @Override
   public int hashCode()
@@ -44,6 +80,14 @@ public class Band extends  Artist
     } else if (!members.equals(other.members)) return false;
     return true;
   }
+
+@Override
+public String toString()
+{
+	return "Band [name=" + name + ", country=" + country + ", genre=" + genre + ",\n\t members=" + members + "]";
+}
+  
+  
   
   
 }

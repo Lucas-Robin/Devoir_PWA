@@ -2,8 +2,9 @@ package billetterie_console;
 
 public class Client
 {
-  String firstname, lastname, mail;
+	private String firstname, lastname, mail;
 
+  /************************ Constructors ************************/
   public Client(String firstname, String lastname, String mail)
   {
     super();
@@ -12,6 +13,13 @@ public class Client
     this.mail = mail;
   }
 
+  public Client()
+  {
+	super();
+  }
+
+
+  /********************** Getters setters ***********************/
   public String getFirstname()
   {
     return firstname;
@@ -74,6 +82,14 @@ public class Client
     } else if (!mail.equals(other.mail)) return false;
     return true;
   }
+
+  @Override
+  public String toString()
+  {
+    return "Client [firstname=" + firstname + ", lastname=" + lastname + ", mail=" + mail + "]";
+  }
+  
+  
   
   
 }
