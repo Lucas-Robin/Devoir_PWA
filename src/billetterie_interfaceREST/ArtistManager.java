@@ -31,7 +31,7 @@ import org.hibernate.*;
 public class ArtistManager
 {
   //public long currentId = 0;
-  public Map<Long, Artist> artists = new HashMap<Long, Artist>();
+//  public Map<Long, Artist> artists = new HashMap<Long, Artist>();
 
   public ArtistManager()
   {
@@ -62,14 +62,9 @@ public class ArtistManager
     Transaction tx = session.beginTransaction();
     
     
-    List<Artist> lArtistes = session.createCriteria(Artist.class).list();
+    List<Artist> lArtistes = (List<Artist>)session.createCriteria(Artist.class).list();
     tx.commit();
-    
-//    for (Object o : this.artists.values().toArray())
-//    {
-//      lArtistes.add((Artist) o);
-//    }
-//    
+
     
     return lArtistes.toArray(new Artist[] {});
   }
@@ -79,15 +74,21 @@ public class ArtistManager
   @Consumes({"application/JSON", "application/xml"})
   public Response updateArtist(Artist artist) {
     System.out.println("----invoking updateArtist, Artist name is: " + artist.getName());
-    Artist a = artists.get(artist.getId());
+    
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    Transaction tx = session.beginTransaction();
+    Artist a = session.get(Artist.class, artist.getId());
+    
     Response r;
     if (a != null) {
-      artists.put(artist.getId(), artist);
+      session.save(artist);
       r = Response.ok().build();
     } else {
       r = Response.notModified().build();
     }
 
+    tx.commit();
+    
     return r;
   }
 
@@ -109,25 +110,29 @@ public class ArtistManager
     session.save(artist);
     tx.commit();
     
-    this.artists.put(artist.getId(), artist);
-    
     return Response.ok(artist).build();
   }
 
   @DELETE
-  @Path("/artists/{id}/")
+  @Path("/artist/{id}/")
   public Response deleteArtist(@PathParam("id") String id) {
     System.out.println("----invoking deleteArtist, Artist id is: " + id);
     long idNumber = Long.parseLong(id);
-    Artist a = this.artists.get(idNumber);
+    
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    Transaction tx = session.beginTransaction();
+    Artist a = session.get(Artist.class, idNumber);
 
     Response r;
     if (a != null) {
       r = Response.ok().build();
-      this.artists.remove(idNumber);
+      session.delete(a);
     } else {
       r = Response.notModified().build();
     }
+    
+    tx.commit();
+    
 
     return r;
   }

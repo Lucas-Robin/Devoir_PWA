@@ -1,4 +1,4 @@
-{"Band":{
+[{"Band":{
   "country": "France",
   "genre": "Post-Rock, Math-Rock",
   "name": "JEAN JEAN",
@@ -10,7 +10,7 @@
   	"firstname": "Sebastien", 
   	"sex": "M", 
   	"role": "Guitarist"}]
-}}
+}},
 
 {"Band":{
     "country": "USA",
@@ -41,4 +41,4 @@
       "role": "Guitarist",
       "sex": "M"
     }]
-  }}
+  }}]
