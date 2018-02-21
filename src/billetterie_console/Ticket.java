@@ -2,8 +2,9 @@ package billetterie_console;
 
 import java.time.LocalDate;
 
-public class Ticket
+public class Ticket //extends ClassWithID
 {
+  protected long id;
 	private String validationCode, cat, state, commentary;
 	private int price; // en centimes
 	private Show show;
@@ -36,6 +37,17 @@ public class Ticket
     this.buyer = buyer;
   }
 
+  
+  public long getId()
+  {
+    return id;
+  }
+
+  public void setId(long id)
+  {
+    this.id = id;
+  }
+  
   public String getValidationCode()
   {
     return validationCode;

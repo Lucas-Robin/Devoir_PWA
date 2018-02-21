@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 f?vr. 2018 17:51:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="billetterie_console.Ticket" table="TICKET">
+        <id name="id" type="long">
+            <column name="TICKET_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="validationCode" type="java.lang.String">
+            <column name="TICKET_VALIDATIONCODE" />
+        </property>
+        <property name="cat" type="java.lang.String">
+            <column name="TICKET_CAT" />
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="TICKET_STATE" />
+        </property>
+        <property name="commentary" type="java.lang.String">
+            <column name="TICKET_COMMENTARY" />
+        </property>
+        <property name="price" type="int">
+            <column name="TICKET_PRICE" />
+        </property>
+        <many-to-one name="show" class="billetterie_console.Show" fetch="join">
+            <column name="TICKET_SHOW" />
+        </many-to-one>
+        <property name="buyDate" type="java.time.LocalDate">
+            <column name="TICKET_BUYDATE" />
+        </property>
+        <many-to-one name="buyer" class="billetterie_console.Client" fetch="join">
+            <column name="TICKET_BUYER" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

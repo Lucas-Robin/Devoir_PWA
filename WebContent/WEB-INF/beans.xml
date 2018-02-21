@@ -13,7 +13,7 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
   <import resource="classpath:META-INF/cxf/cxf.xml" />
   <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
  
-  <jaxrs:server id="artistManager" address="/ArtistManager">
+  <jaxrs:server id="artistManager" address="/Artist">
     <jaxrs:serviceBeans>
       <ref bean="artistBean" />
     </jaxrs:serviceBeans>
@@ -23,6 +23,6 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
 <!--       <ref bean="orderBean" /> -->
 <!--     </jaxrs:serviceBeans> -->
 <!--   </jaxrs:server> -->
-  <bean id="artistBean" class="billetterie_console.ArtistManager" />
+  <bean id="artistBean" class="billetterie_interfaceREST.ArtistManager" />
 <!--   <bean id="orderBean" class="order_server.Order" /> -->
 </beans>

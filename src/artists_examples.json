@@ -1,0 +1,44 @@
+{"Band":{
+  "country": "France",
+  "genre": "Post-Rock, Math-Rock",
+  "name": "JEAN JEAN",
+  "members": [{ 
+  	"name": "Sebastien Torregrossa", 
+  	"country": "France", 
+  	"genre": "Math-Rock, Post-Rock", 
+  	"lastname": "Torregrossa", 
+  	"firstname": "Sebastien", 
+  	"sex": "M", 
+  	"role": "Guitarist"}]
+}}
+
+{"Band":{
+    "country": "USA",
+    "genre": "Métal Progressif",
+    "name": "Animals as Leader",
+    "members": [{
+      "country": "USA",
+      "genre": "Metal Progressif",
+      "name": "Matt Gartska",
+      "firstname": "Gartska",
+      "lastname": "Matt",
+      "role": "Drummer",
+      "sex": "M"
+    }, {
+      "country": "USA",
+      "genre": "Metal Progressif, Jazz fusion",
+      "name": "Javier Reyes",
+      "firstname": "Reyes",
+      "lastname": "Javier",
+      "role": "Guitarist",
+      "sex": "M"
+    }, {
+      "country": "USA",
+      "genre": "Metal Progressif, Jazz fusion",
+      "name": "Tosin Abasi",
+      "firstname": "Abasi",
+      "lastname": "Tosin",
+      "role": "Guitarist",
+      "sex": "M"
+    }]
+  }}

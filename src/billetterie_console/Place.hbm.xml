@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 f?vr. 2018 17:51:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="billetterie_console.Place" table="PLACE">
+        <id name="id" type="long">
+            <column name="PLACE_ID" />
+            <generator class="native" />
+        </id>
+        <property name="type" type="java.lang.String">
+            <column name="PLACE_TYPE" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="PLACE_NAME" />
+        </property>
+        <property name="phonenumber" type="java.lang.String">
+            <column name="PLACE_PHONENUMBER" />
+        </property>
+        <property name="mail" type="java.lang.String">
+            <column name="PLACE_MAIL" />
+        </property>
+        <property name="infosPMR" type="java.lang.String">
+            <column name="PLACE_INFOSPMR" />
+        </property>
+        <property name="commentary" type="java.lang.String">
+            <column name="PLACE_COMMENTARY" />
+        </property>
+        <property name="capacity" type="int">
+            <column name="PLACE_CAPACITY" />
+        </property>
+        <set name="showList" table="SHOW" inverse="false" lazy="true">
+            <key>
+                <column name="SHOW_ID" />
+            </key>
+            <one-to-many class="billetterie_console.Show" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 f?vr. 2018 17:43:20 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="billetterie_console.Artist" table="ARTIST">
+        <id name="id" type="long">
+            <column name="ARTIST_ID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="ARTIST_NAME" />
+        </property>
+        <property name="country" type="java.lang.String">
+            <column name="ARTIST_COUNTRY" />
+        </property>
+        <property name="genre" type="java.lang.String">
+            <column name="ARTIST_GENRE" />
+        </property>
+    </class>
+</hibernate-mapping>

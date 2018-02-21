@@ -1,4 +1,4 @@
-package billetterie_console;
+package billetterie_servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

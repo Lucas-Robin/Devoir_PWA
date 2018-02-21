@@ -6,8 +6,9 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class Show
+public class Show //extends ClassWithID
 {
+  protected long id;
   private String name, commentary;
   private LocalDateTime date;
   private Set<Artist> artistsList;
@@ -57,6 +58,16 @@ public class Show
   
   
   /********************** Getters setters ***********************/
+  public long getId()
+  {
+    return id;
+  }
+
+  public void setId(long id)
+  {
+    this.id = id;
+  }
+  
   public String getName()
   {
     return name;
@@ -133,7 +144,7 @@ public class Show
   @Override
   public String toString()
   {
-    return "Show [name=" + name + ", commentary=" + commentary + ", date=" + 
+    return "Show" + id + " [name=" + name + ", commentary=" + commentary + ", date=" + 
            date.format(DateTimeFormatter.ofPattern("EEEE dd MMM yyyy HH:mm")) + ",\n\t artistsList=" + artistsList
            + ",\n\t organisator=" + organisator + ", place=" + place.print() + ",\n\t ticketsList=" + 
            ticketsList.stream().map((ticket) -> ticket.print()).collect(Collectors.joining(",\n\t\t")) + "]";
@@ -141,7 +152,7 @@ public class Show
   
   public String print()
   { 
-    return "Show [name=" + name + ", commentary=" + commentary + ", date=" + 
+    return "Show" + id + " [name=" + name + ", commentary=" + commentary + ", date=" + 
            date.format(DateTimeFormatter.ofPattern("EEEE dd MMM yyyy HH:mm")) + ",\n\t artistsList=" + artistsList + 
            ",\n\t organisator=" + organisator + "]";
   }

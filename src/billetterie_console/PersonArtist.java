@@ -1,6 +1,9 @@
 package billetterie_console;
 
-public class PersonArtist extends  Artist
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "PersonArtist")
+public class PersonArtist extends Artist
 {
   private String lastname, firstname, sex, role;
   
@@ -24,7 +27,7 @@ public class PersonArtist extends  Artist
 
 
 
-@Override
+  @Override
   public int hashCode()
   {
     final int prime = 31;
@@ -109,7 +112,7 @@ public class PersonArtist extends  Artist
 @Override
 public String toString()
 {
-	return "PersonArtist [lastname=" + lastname + ", firstname=" + firstname + ", sex=" + sex + ", role=" + role
+	return "PersonArtist_" + id + " [lastname=" + lastname + ", firstname=" + firstname + ", sex=" + sex + ", role=" + role
 			+ ", name=" + name + ", country=" + country + ", genre=" + genre + "]";
 }
   

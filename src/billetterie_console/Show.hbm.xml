@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 f?vr. 2018 17:51:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="billetterie_console.Show" table="SHOW">
+        <id name="id" type="long">
+            <column name="SHOW_ID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="SHOW_NAME" />
+        </property>
+        <property name="commentary" type="java.lang.String">
+            <column name="SHOW_COMMENTARY" />
+        </property>
+        <property name="date" type="java.time.LocalDateTime">
+            <column name="SHOW_DATE" />
+        </property>
+        <set name="artistsList" table="ARTIST" inverse="false" lazy="true">
+            <key>
+                <column name="ARTIST_ID" />
+            </key>
+            <one-to-many class="billetterie_console.Artist" />
+        </set>
+        <many-to-one name="organisator" class="billetterie_console.ShowOrganisator" fetch="join">
+            <column name="SHOW_ORGANISATOR" />
+        </many-to-one>
+        <many-to-one name="place" class="billetterie_console.Place" fetch="join">
+            <column name="SHOW_PLACE" />
+        </many-to-one>
+        <set name="ticketsList" table="TICKET" inverse="false" lazy="true">
+            <key>
+                <column name="TICKET_ID" />
+            </key>
+            <one-to-many class="billetterie_console.Ticket" />
+        </set>
+    </class>
+</hibernate-mapping>

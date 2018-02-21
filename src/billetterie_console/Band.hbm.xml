@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 f?vr. 2018 17:43:20 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <joined-subclass name="billetterie_console.Band" extends="billetterie_console.Artist" table="BAND" lazy="false">
+        <key>
+            <column name="ARTIST_ID" />
+        </key>
+        <set name="members" table="ARTIST" inverse="false" lazy="false">
+            <key>
+                <column name="BAND_ID" />
+            </key>
+            <one-to-many class="billetterie_console.PersonArtist" />
+        </set>
+    </joined-subclass>
+</hibernate-mapping>

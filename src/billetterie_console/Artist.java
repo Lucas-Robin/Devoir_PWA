@@ -1,7 +1,13 @@
 package billetterie_console;
 
-public class Artist
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+
+@XmlRootElement(name = "Artist")
+@XmlSeeAlso({Band.class, PersonArtist.class})
+public class Artist //extends ClassWithID
 {
+  protected long id;
   protected String name, country, genre;
 
   /************************ Constructors ************************/
@@ -12,16 +18,26 @@ public class Artist
     this.country = country;
     this.genre = genre;
   }
-  
+
   public Artist()
   {
-	super();
+    super();
   }
 
 
 
 
-/********************** Getters setters ***********************/
+  /********************** Getters setters ***********************/
+  public long getId()
+  {
+    return id;
+  }
+
+  public void setId(long id)
+  {
+    this.id = id;
+  }
+  
   public String getName()
   {
     return name;
@@ -52,6 +68,11 @@ public class Artist
     this.genre = genre;
   }
 
+
+
+
+
+
   @Override
   public int hashCode()
   {
@@ -66,25 +87,39 @@ public class Artist
   @Override
   public boolean equals(Object obj)
   {
-    if (this == obj) return true;
-    if (obj == null) return false;
-    if (getClass() != obj.getClass()) return false;
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
     Artist other = (Artist) obj;
     if (country == null)
     {
-      if (other.country != null) return false;
-    } else if (!country.equals(other.country)) return false;
+      if (other.country != null)
+        return false;
+    } else if (!country.equals(other.country))
+      return false;
     if (genre == null)
     {
-      if (other.genre != null) return false;
-    } else if (!genre.equals(other.genre)) return false;
+      if (other.genre != null)
+        return false;
+    } else if (!genre.equals(other.genre))
+      return false;
     if (name == null)
     {
-      if (other.name != null) return false;
-    } else if (!name.equals(other.name)) return false;
+      if (other.name != null)
+        return false;
+    } else if (!name.equals(other.name))
+      return false;
     return true;
   }
 
+  @Override
+  public String toString()
+  {
+    return "Artist_" + id + " [name=" + name + ", country=" + country + ", genre=" + genre + "]";
+  }
 
-  
+
 }

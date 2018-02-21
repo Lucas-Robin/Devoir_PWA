@@ -1,7 +1,8 @@
 package billetterie_console;
 
-public class Client
+public class Client //extends ClassWithID
 {
+  protected long id;
 	private String firstname, lastname, mail;
 
   /************************ Constructors ************************/
@@ -20,6 +21,16 @@ public class Client
 
 
   /********************** Getters setters ***********************/
+  public long getId()
+  {
+    return id;
+  }
+
+  public void setId(long id)
+  {
+    this.id = id;
+  }
+  
   public String getFirstname()
   {
     return firstname;
@@ -86,7 +97,7 @@ public class Client
   @Override
   public String toString()
   {
-    return "Client [firstname=" + firstname + ", lastname=" + lastname + ", mail=" + mail + "]";
+    return "Client" + id + " [firstname=" + firstname + ", lastname=" + lastname + ", mail=" + mail + "]";
   }
   
   

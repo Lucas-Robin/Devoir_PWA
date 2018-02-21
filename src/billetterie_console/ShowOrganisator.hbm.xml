@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 f?vr. 2018 17:51:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="billetterie_console.ShowOrganisator" table="SHOWORGANISATOR">
+        <id name="id" type="long">
+            <column name="SHOWORGANISATOR_ID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="SHOWORGANISATOR_NAME" />
+        </property>
+        <property name="mail" type="java.lang.String">
+            <column name="SHOWORGANISATOR_MAIL" />
+        </property>
+    </class>
+</hibernate-mapping>

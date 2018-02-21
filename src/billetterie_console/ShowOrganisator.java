@@ -1,7 +1,8 @@
 package billetterie_console;
 
-public class ShowOrganisator
+public class ShowOrganisator //extends ClassWithID
 {
+  protected long id;
 	private String name, mail;
 
   /************************ Constructors ************************/
@@ -20,6 +21,16 @@ public class ShowOrganisator
 
   
   /********************** Getters setters ***********************/
+  public long getId()
+  {
+    return id;
+  }
+
+  public void setId(long id)
+  {
+    this.id = id;
+  }
+  
   public String getName()
   {
     return name;
@@ -71,7 +82,7 @@ public class ShowOrganisator
   @Override
   public String toString()
   {
-    return "ShowOrganisator [name=" + name + ", mail=" + mail + "]";
+    return "ShowOrganisator" + id + " [name=" + name + ", mail=" + mail + "]";
   }
   
   

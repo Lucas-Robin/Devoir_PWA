@@ -5,8 +5,9 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class Place 
+public class Place //extends ClassWithID
 {
+  protected long id;
   private String type, // Salle de concert, lieu plein air...  
          		 name, 
          		 phonenumber, 
@@ -107,6 +108,16 @@ public class Place
 
   
   /********************** Getters setters ***********************/
+  public long getId()
+  {
+    return id;
+  }
+
+  public void setId(long id)
+  {
+    this.id = id;
+  }
+  
   public String getType()
   {
     return type;

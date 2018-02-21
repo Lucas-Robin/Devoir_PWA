@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 f?vr. 2018 17:43:20 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <joined-subclass name="billetterie_console.PersonArtist" extends="billetterie_console.Artist" table="PERSONARTIST" lazy="false">
+        <key>
+            <column name="ARTIST_ID" />
+        </key>
+        <property name="firstname" type="java.lang.String">
+            <column name="PARSONARTIST_FIRSTNAME" />
+        </property>
+        <property name="role" type="java.lang.String">
+            <column name="PARSONARTIST_ROLE" />
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="PARSONARTIST_SEX" />
+        </property>
+        <property name="lastname" type="java.lang.String">
+            <column name="PARSONARTIST_LASTNAME" />
+        </property>
+    </joined-subclass>
+</hibernate-mapping>

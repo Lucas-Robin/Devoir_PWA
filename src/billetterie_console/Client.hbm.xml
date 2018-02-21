@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 f?vr. 2018 17:51:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="billetterie_console.Client" table="CLIENT">
+        <id name="id" type="long">
+            <column name="CLIENT_ID" />
+            <generator class="native" />
+        </id>
+        <property name="firstname" type="java.lang.String">
+            <column name="CLIENT_FIRSTNAME" />
+        </property>
+        <property name="lastname" type="java.lang.String">
+            <column name="CLIENT_LASTNAME" />
+        </property>
+        <property name="mail" type="java.lang.String">
+            <column name="CLIENT_MAIL" />
+        </property>
+    </class>
+</hibernate-mapping>
