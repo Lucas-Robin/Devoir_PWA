@@ -2,7 +2,10 @@ package billetterie_console;
 
 import java.time.LocalDate;
 
-public class Ticket //extends ClassWithID
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "Ticket")
+public class Ticket
 {
   protected long id;
 	private String validationCode, cat, state, commentary;
@@ -36,8 +39,15 @@ public class Ticket //extends ClassWithID
     this.buyDate = buyDate;
     this.buyer = buyer;
   }
+  
+  
 
   
+  public Ticket()
+  {
+    super();
+  }
+
   public long getId()
   {
     return id;

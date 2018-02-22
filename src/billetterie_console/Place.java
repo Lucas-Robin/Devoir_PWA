@@ -5,7 +5,10 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class Place //extends ClassWithID
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "Place")
+public class Place
 {
   protected long id;
   private String type, // Salle de concert, lieu plein air...  
@@ -49,6 +52,8 @@ public class Place //extends ClassWithID
   public Place()
   {
 	super();
+
+  this.showList = new HashSet<Show>();
   }
 
 @Override

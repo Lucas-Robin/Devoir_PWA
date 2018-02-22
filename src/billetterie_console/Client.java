@@ -1,5 +1,8 @@
 package billetterie_console;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "Client")
 public class Client //extends ClassWithID
 {
   protected long id;

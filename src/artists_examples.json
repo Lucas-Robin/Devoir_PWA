@@ -42,3 +42,14 @@
       "sex": "M"
     }]
   }}]
+{"PersonArtist":
+  {
+      "country": "USA",
+      "genre": "Metal Progressif",
+      "name": "John Petrucci",
+      "firstname": "Petrucci",
+      "lastname": "John",
+      "role": "Guitarist",
+      "sex": "M"
+    }
+}

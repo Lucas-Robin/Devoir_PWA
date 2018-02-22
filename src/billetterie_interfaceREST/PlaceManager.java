@@ -15,62 +15,63 @@ import javax.ws.rs.core.Response;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import billetterie_console.ShowOrganisator;
+import billetterie_console.Place;
 
-@Path("/showorganisatormanager/")
+
+@Path("/placemanager/")
 @Consumes({"application/JSON", "application/xml"})
 @Produces({"application/JSON", "application/xml"})
-public class ShowOrganisatorManager
+public class PlaceManager
 {
-  public ShowOrganisatorManager()
+  public PlaceManager()
   {
     init();
   }
 
   @GET
-  @Path("/showorganisator/{id}/")
-  public ShowOrganisator getShowOrganisator(@PathParam("id") String id) {
-    System.out.println("----invoking getShowOrganisator, ShowOrganisator id is: " + id);
+  @Path("/place/{id}/")
+  public Place getPlace(@PathParam("id") String id) {
+    System.out.println("----invoking getPlace, Place id is: " + id);
     long idNumber = Long.parseLong(id);
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
-    ShowOrganisator so = session.get(ShowOrganisator.class, idNumber);
+    Place p = session.get(Place.class, idNumber);
     tx.commit();
     
-    return so;
+    return p;
   }
 
   @GET
-  @Path("/showorganisators/")
-  public ShowOrganisator[] getAllShowOrganisator() {
-    System.out.println("----invoking getAllShowOrganisator");
+  @Path("/places/")
+  public Place[] getAllPlace() {
+    System.out.println("----invoking getAllPlace");
     
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
     
     
-    List<ShowOrganisator> lShowOrganisators = (List<ShowOrganisator>)session.createCriteria(ShowOrganisator.class).list();
+    List<Place> lPlaces = (List<Place>)session.createCriteria(Place.class).list();
     tx.commit();
 
     
-    return lShowOrganisators.toArray(new ShowOrganisator[] {});
+    return lPlaces.toArray(new Place[] {});
   }
 
   @PUT
-  @Path("/showorganisators/")
+  @Path("/places/")
   @Consumes({"application/JSON", "application/xml"})
-  public Response updateShowOrganisator(ShowOrganisator showOrganisator) {
-    System.out.println("----invoking updateShowOrganisator, ShowOrganisator name is: " + showOrganisator.getName());
+  public Response updatePlace(Place place) {
+    System.out.println("----invoking updatePlace, Place name is: " + place.getName());
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
-    ShowOrganisator so = session.get(ShowOrganisator.class, showOrganisator.getId());
+    Place p = session.get(Place.class, place.getId());
     
     Response r;
-    if (so != null) {
-      session.save(showOrganisator);
+    if (p != null) {
+      session.save(place);
       r = Response.ok().build();
     } else {
       r = Response.notModified().build();
@@ -82,32 +83,32 @@ public class ShowOrganisatorManager
   }
 
   @POST
-  @Path("/showorganisators/")
-  public Response addShowOrganisator(ShowOrganisator showOrganisator) {
+  @Path("/places/")
+  public Response addPlace(Place place) {
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
-    System.out.println("----invoking addShowOrganisator, ShowOrganisator name is: " + showOrganisator.getName());
+    System.out.println("----invoking addPlace, Place name is: " + place.getName());
         
-    session.save(showOrganisator);
+    session.save(place);
     tx.commit();
     
-    return Response.ok(showOrganisator).build();
+    return Response.ok(place).build();
   }
 
   @DELETE
-  @Path("/showorganisator/{id}/")
-  public Response deleteShowOrganisator(@PathParam("id") String id) {
-    System.out.println("----invoking deleteShowOrganisator, ShowOrganisator id is: " + id);
+  @Path("/place/{id}/")
+  public Response deletePlace(@PathParam("id") String id) {
+    System.out.println("----invoking deletePlace, Place id is: " + id);
     long idNumber = Long.parseLong(id);
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
-    ShowOrganisator so = session.get(ShowOrganisator.class, idNumber);
+    Place p = session.get(Place.class, idNumber);
 
     Response r;
-    if (so != null) {
+    if (p != null) {
       r = Response.ok().build();
-      session.delete(so);
+      session.delete(p);
     } else {
       r = Response.notModified().build();
     }
@@ -124,5 +125,4 @@ public class ShowOrganisatorManager
     
 
   }
-  
 }

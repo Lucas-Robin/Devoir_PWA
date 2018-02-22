@@ -2,6 +2,7 @@
     <wb-module deploy-name="Devoir_PWA">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/" source-path="/WebContent/WEB-INF/lib"/>
         <dependent-module archiveName="xml-resolver-1.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/Mi5terfake/Documents/INGE_INFO/PWA/apache-cxf-3.2.1/lib/xml-resolver-1.2.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>

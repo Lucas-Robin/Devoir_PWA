@@ -29,7 +29,7 @@
         <property name="capacity" type="int">
             <column name="PLACE_CAPACITY" />
         </property>
-        <set name="showList" table="SHOW" inverse="false" lazy="true">
+        <set name="showList" table="SHOW" inverse="false" lazy="false">
             <key>
                 <column name="SHOW_ID" />
             </key>

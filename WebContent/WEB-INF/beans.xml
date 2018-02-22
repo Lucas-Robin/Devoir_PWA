@@ -18,11 +18,42 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
       <ref bean="artistBean" />
     </jaxrs:serviceBeans>
   </jaxrs:server>
+  <jaxrs:server id="showManager" address="/Show">
+    <jaxrs:serviceBeans>
+      <ref bean="showBean" />
+    </jaxrs:serviceBeans>
+  </jaxrs:server>
+  <jaxrs:server id="showOrganisatorManager" address="/ShowOrganisator">
+    <jaxrs:serviceBeans>
+      <ref bean="showOrganisatorBean" />
+    </jaxrs:serviceBeans>
+  </jaxrs:server>
+  <jaxrs:server id="placeManager" address="/Place">
+    <jaxrs:serviceBeans>
+      <ref bean="placeBean" />
+    </jaxrs:serviceBeans>
+  </jaxrs:server>
+  <jaxrs:server id="ticketManager" address="/Ticket">
+    <jaxrs:serviceBeans>
+      <ref bean="ticketBean" />
+    </jaxrs:serviceBeans>
+  </jaxrs:server>
+  <jaxrs:server id="clientManager" address="/Client">
+    <jaxrs:serviceBeans>
+      <ref bean="clientBean" />
+    </jaxrs:serviceBeans>
+  </jaxrs:server>
+  
 <!--  <jaxrs:server id="Order" address="/Order"> -->
 <!--     <jaxrs:serviceBeans> -->
 <!--       <ref bean="orderBean" /> -->
 <!--     </jaxrs:serviceBeans> -->
 <!--   </jaxrs:server> -->
   <bean id="artistBean" class="billetterie_interfaceREST.ArtistManager" />
-<!--   <bean id="orderBean" class="order_server.Order" /> -->
+  <bean id="showBean" class="billetterie_interfaceREST.ShowManager" />
+  <bean id="showOrganisatorBean" class="billetterie_interfaceREST.ShowOrganisatorManager" />
+  <bean id="placeBean" class="billetterie_interfaceREST.PlaceManager" />
+  <bean id="ticketBean" class="billetterie_interfaceREST.TicketManager" />
+  <bean id="clientBean" class="billetterie_interfaceREST.ClientManager" />
+
 </beans>

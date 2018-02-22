@@ -15,62 +15,62 @@ import javax.ws.rs.core.Response;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import billetterie_console.ShowOrganisator;
+import billetterie_console.Ticket;
 
-@Path("/showorganisatormanager/")
+@Path("/ticketmanager/")
 @Consumes({"application/JSON", "application/xml"})
 @Produces({"application/JSON", "application/xml"})
-public class ShowOrganisatorManager
+public class TicketManager
 {
-  public ShowOrganisatorManager()
+  public TicketManager()
   {
     init();
   }
 
   @GET
-  @Path("/showorganisator/{id}/")
-  public ShowOrganisator getShowOrganisator(@PathParam("id") String id) {
-    System.out.println("----invoking getShowOrganisator, ShowOrganisator id is: " + id);
+  @Path("/ticket/{id}/")
+  public Ticket getTicket(@PathParam("id") String id) {
+    System.out.println("----invoking getTicket, Ticket id is: " + id);
     long idNumber = Long.parseLong(id);
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
-    ShowOrganisator so = session.get(ShowOrganisator.class, idNumber);
+    Ticket t = session.get(Ticket.class, idNumber);
     tx.commit();
     
-    return so;
+    return t;
   }
 
   @GET
-  @Path("/showorganisators/")
-  public ShowOrganisator[] getAllShowOrganisator() {
-    System.out.println("----invoking getAllShowOrganisator");
+  @Path("/tickets/")
+  public Ticket[] getAllTicket() {
+    System.out.println("----invoking getAllTicket");
     
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
     
     
-    List<ShowOrganisator> lShowOrganisators = (List<ShowOrganisator>)session.createCriteria(ShowOrganisator.class).list();
+    List<Ticket> lTickets = (List<Ticket>)session.createCriteria(Ticket.class).list();
     tx.commit();
 
     
-    return lShowOrganisators.toArray(new ShowOrganisator[] {});
+    return lTickets.toArray(new Ticket[] {});
   }
 
   @PUT
-  @Path("/showorganisators/")
+  @Path("/tickets/")
   @Consumes({"application/JSON", "application/xml"})
-  public Response updateShowOrganisator(ShowOrganisator showOrganisator) {
-    System.out.println("----invoking updateShowOrganisator, ShowOrganisator name is: " + showOrganisator.getName());
+  public Response updateTicket(Ticket ticket) {
+    System.out.println("----invoking updateTicket, Ticket id is: " + ticket.getId());
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
-    ShowOrganisator so = session.get(ShowOrganisator.class, showOrganisator.getId());
+    Ticket t = session.get(Ticket.class, ticket.getId());
     
     Response r;
-    if (so != null) {
-      session.save(showOrganisator);
+    if (t != null) {
+      session.save(ticket);
       r = Response.ok().build();
     } else {
       r = Response.notModified().build();
@@ -82,32 +82,32 @@ public class ShowOrganisatorManager
   }
 
   @POST
-  @Path("/showorganisators/")
-  public Response addShowOrganisator(ShowOrganisator showOrganisator) {
+  @Path("/tickets/")
+  public Response addTicket(Ticket ticket) {
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
-    System.out.println("----invoking addShowOrganisator, ShowOrganisator name is: " + showOrganisator.getName());
+    System.out.println("----invoking addTicket, Ticket id is: " + ticket.getId());
         
-    session.save(showOrganisator);
+    session.save(ticket);
     tx.commit();
     
-    return Response.ok(showOrganisator).build();
+    return Response.ok(ticket).build();
   }
 
   @DELETE
-  @Path("/showorganisator/{id}/")
-  public Response deleteShowOrganisator(@PathParam("id") String id) {
-    System.out.println("----invoking deleteShowOrganisator, ShowOrganisator id is: " + id);
+  @Path("/ticket/{id}/")
+  public Response deleteTicket(@PathParam("id") String id) {
+    System.out.println("----invoking deleteTicket, Ticket id is: " + id);
     long idNumber = Long.parseLong(id);
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
-    ShowOrganisator so = session.get(ShowOrganisator.class, idNumber);
+    Ticket t = session.get(Ticket.class, idNumber);
 
     Response r;
-    if (so != null) {
+    if (t != null) {
       r = Response.ok().build();
-      session.delete(so);
+      session.delete(t);
     } else {
       r = Response.notModified().build();
     }
@@ -124,5 +124,6 @@ public class ShowOrganisatorManager
     
 
   }
+  
   
 }

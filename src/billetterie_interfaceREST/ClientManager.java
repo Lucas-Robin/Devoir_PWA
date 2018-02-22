@@ -15,62 +15,62 @@ import javax.ws.rs.core.Response;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import billetterie_console.ShowOrganisator;
+import billetterie_console.Client;
 
-@Path("/showorganisatormanager/")
+@Path("/clientmanager/")
 @Consumes({"application/JSON", "application/xml"})
 @Produces({"application/JSON", "application/xml"})
-public class ShowOrganisatorManager
+public class ClientManager
 {
-  public ShowOrganisatorManager()
+  public ClientManager()
   {
     init();
   }
 
   @GET
-  @Path("/showorganisator/{id}/")
-  public ShowOrganisator getShowOrganisator(@PathParam("id") String id) {
-    System.out.println("----invoking getShowOrganisator, ShowOrganisator id is: " + id);
+  @Path("/client/{id}/")
+  public Client getClient(@PathParam("id") String id) {
+    System.out.println("----invoking getClient, Client id is: " + id);
     long idNumber = Long.parseLong(id);
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
-    ShowOrganisator so = session.get(ShowOrganisator.class, idNumber);
+    Client t = session.get(Client.class, idNumber);
     tx.commit();
     
-    return so;
+    return t;
   }
 
   @GET
-  @Path("/showorganisators/")
-  public ShowOrganisator[] getAllShowOrganisator() {
-    System.out.println("----invoking getAllShowOrganisator");
+  @Path("/clients/")
+  public Client[] getAllClient() {
+    System.out.println("----invoking getAllClient");
     
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
     
     
-    List<ShowOrganisator> lShowOrganisators = (List<ShowOrganisator>)session.createCriteria(ShowOrganisator.class).list();
+    List<Client> lClients = (List<Client>)session.createCriteria(Client.class).list();
     tx.commit();
 
     
-    return lShowOrganisators.toArray(new ShowOrganisator[] {});
+    return lClients.toArray(new Client[] {});
   }
 
   @PUT
-  @Path("/showorganisators/")
+  @Path("/clients/")
   @Consumes({"application/JSON", "application/xml"})
-  public Response updateShowOrganisator(ShowOrganisator showOrganisator) {
-    System.out.println("----invoking updateShowOrganisator, ShowOrganisator name is: " + showOrganisator.getName());
+  public Response updateClient(Client client) {
+    System.out.println("----invoking updateClient, Client name is: " + client.getLastname());
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
-    ShowOrganisator so = session.get(ShowOrganisator.class, showOrganisator.getId());
+    Client t = session.get(Client.class, client.getId());
     
     Response r;
-    if (so != null) {
-      session.save(showOrganisator);
+    if (t != null) {
+      session.save(client);
       r = Response.ok().build();
     } else {
       r = Response.notModified().build();
@@ -82,32 +82,32 @@ public class ShowOrganisatorManager
   }
 
   @POST
-  @Path("/showorganisators/")
-  public Response addShowOrganisator(ShowOrganisator showOrganisator) {
+  @Path("/clients/")
+  public Response addClient(Client client) {
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
-    System.out.println("----invoking addShowOrganisator, ShowOrganisator name is: " + showOrganisator.getName());
+    System.out.println("----invoking addClient, Client name is: " + client.getLastname());
         
-    session.save(showOrganisator);
+    session.save(client);
     tx.commit();
     
-    return Response.ok(showOrganisator).build();
+    return Response.ok(client).build();
   }
 
   @DELETE
-  @Path("/showorganisator/{id}/")
-  public Response deleteShowOrganisator(@PathParam("id") String id) {
-    System.out.println("----invoking deleteShowOrganisator, ShowOrganisator id is: " + id);
+  @Path("/client/{id}/")
+  public Response deleteClient(@PathParam("id") String id) {
+    System.out.println("----invoking deleteClient, Client id is: " + id);
     long idNumber = Long.parseLong(id);
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
-    ShowOrganisator so = session.get(ShowOrganisator.class, idNumber);
+    Client t = session.get(Client.class, idNumber);
 
     Response r;
-    if (so != null) {
+    if (t != null) {
       r = Response.ok().build();
-      session.delete(so);
+      session.delete(t);
     } else {
       r = Response.notModified().build();
     }
@@ -124,5 +124,6 @@ public class ShowOrganisatorManager
     
 
   }
+  
   
 }

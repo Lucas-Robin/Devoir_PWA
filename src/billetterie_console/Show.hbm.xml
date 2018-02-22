@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 20 f?vr. 2018 17:51:23 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="billetterie_console.Show" table="SHOW">
+    <class name="billetterie_console.Show" table="SHOWS_TABLE">
         <id name="id" type="long">
             <column name="SHOW_ID" />
             <generator class="native" />
@@ -14,10 +14,10 @@
         <property name="commentary" type="java.lang.String">
             <column name="SHOW_COMMENTARY" />
         </property>
-        <property name="date" type="java.time.LocalDateTime">
+        <property name="date" type="timestamp">
             <column name="SHOW_DATE" />
         </property>
-        <set name="artistsList" table="ARTIST" inverse="false" lazy="true">
+        <set name="artistsList" table="ARTIST" inverse="false" lazy="false">
             <key>
                 <column name="ARTIST_ID" />
             </key>
@@ -29,7 +29,7 @@
         <many-to-one name="place" class="billetterie_console.Place" fetch="join">
             <column name="SHOW_PLACE" />
         </many-to-one>
-        <set name="ticketsList" table="TICKET" inverse="false" lazy="true">
+        <set name="ticketsList" table="TICKET" inverse="false" lazy="false">
             <key>
                 <column name="TICKET_ID" />
             </key>

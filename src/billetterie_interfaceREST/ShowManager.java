@@ -1,8 +1,9 @@
 package billetterie_interfaceREST;
 
-import java.util.HashMap;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Map;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -17,8 +18,9 @@ import javax.ws.rs.core.Response;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-
+import billetterie_console.Place;
 import billetterie_console.Show;
+import billetterie_console.ShowOrganisator;
 
 @Path("/showmanager/")
 @Consumes({"application/JSON", "application/xml"})
@@ -40,13 +42,16 @@ public class ShowManager
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
     Show s = session.get(Show.class, idNumber);
-    tx.commit();
     
+    tx.commit();
+    System.out.println(s);
     return s;
   }
 
   @GET
   @Path("/shows/")
+  @Consumes({"application/JSON", "application/xml"})
+  @Produces({"application/JSON", "application/xml"})
   public Show[] getAllShow() {
     System.out.println("----invoking getAllShow");
     
@@ -124,8 +129,31 @@ public class ShowManager
   
   final void init()
   {
+//    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//    Transaction tx = session.beginTransaction();
+//    
+//    DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+//    
+//    ShowOrganisator so = new ShowOrganisator("Orga pouet", "pipou@pouet.com");
+//    Place p = new Place("Salle", "Elysée Montmartre", 1380, "tructruc", "EM@mail,fr", "plein d'éscaliers", "Pète le feu");
+//    session.save(so);
+//    session.save(p);
+//    
+//    Show s;
+//    try
+//    {    
+//      s = new Show("blabla", "TrucTruc", df.parse("21-02-2018 20:25"), so, p);
+//      //s.addArtist();
+//      session.save(s);
+//    } catch (ParseException e)
+//    {
+//      // TODO Auto-generated catch block
+//      e.printStackTrace();
+//    }
+//    
+//
+//    tx.commit();
     
-
   }
   
 

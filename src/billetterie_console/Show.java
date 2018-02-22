@@ -1,16 +1,20 @@
 package billetterie_console;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+
+@XmlRootElement(name = "Show")
 public class Show //extends ClassWithID
 {
   protected long id;
   private String name, commentary;
-  private LocalDateTime date;
+  private Date date;
   private Set<Artist> artistsList;
   private ShowOrganisator organisator;
   private Place place;
@@ -18,7 +22,7 @@ public class Show //extends ClassWithID
 
   /************************ Constructors ************************/
   // Constructor for common use
-  public Show(String name, String commentary, LocalDateTime date, ShowOrganisator organisator, Place place)
+  public Show(String name, String commentary, Date date, ShowOrganisator organisator, Place place)
   {
     super();
     this.name = name;
@@ -33,7 +37,7 @@ public class Show //extends ClassWithID
     this.ticketsList = new HashSet<Ticket>();
   }
 
-  public Show(String name, String commentary, LocalDateTime date, Set<Artist> artistsList, ShowOrganisator organisator,
+  public Show(String name, String commentary, Date date, Set<Artist> artistsList, ShowOrganisator organisator,
       Place place, Set<Ticket> ticketsList)
   {
     super();
@@ -88,12 +92,12 @@ public class Show //extends ClassWithID
     this.commentary = commentary;
   }
 
-  public LocalDateTime getDate()
+  public Date getDate()
   {
     return date;
   }
 
-  public void setDate(LocalDateTime date)
+  public void setDate(Date date)
   {
     this.date = date;
   }
@@ -118,6 +122,7 @@ public class Show //extends ClassWithID
     this.organisator = organisator;
   }
 
+  @XmlTransient
   public Place getPlace()
   {
     return place;
@@ -129,6 +134,7 @@ public class Show //extends ClassWithID
     place.addShow(this);
   }
 
+  @XmlTransient
   public Set<Ticket> getTicketsList()
   {
     return ticketsList;
@@ -145,15 +151,17 @@ public class Show //extends ClassWithID
   public String toString()
   {
     return "Show" + id + " [name=" + name + ", commentary=" + commentary + ", date=" + 
-           date.format(DateTimeFormatter.ofPattern("EEEE dd MMM yyyy HH:mm")) + ",\n\t artistsList=" + artistsList
+           date + ",\n\t artistsList=" + artistsList
            + ",\n\t organisator=" + organisator + ", place=" + place.print() + ",\n\t ticketsList=" + 
            ticketsList.stream().map((ticket) -> ticket.print()).collect(Collectors.joining(",\n\t\t")) + "]";
   }
   
+
+
   public String print()
   { 
     return "Show" + id + " [name=" + name + ", commentary=" + commentary + ", date=" + 
-           date.format(DateTimeFormatter.ofPattern("EEEE dd MMM yyyy HH:mm")) + ",\n\t artistsList=" + artistsList + 
+           date + ",\n\t artistsList=" + artistsList + 
            ",\n\t organisator=" + organisator + "]";
   }
   
