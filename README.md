@@ -41,3 +41,6 @@ L'implémentation des pages manquantes n'a pas été réalisé pour le moment pa
 # Conclusion et améliorations à apporter au projet. 
 
 Grâce à ce projet j'ai pu apprendre à développer et mettre en place des webservices avancés avec l'aide de JEE et de certain framework, il m'a permis de bien mieux comprendre le fonctionnement notament du framework Hibernate et de l'API Jax-RS et m'a permis d'en apprendre plus sur les bonnes pratiques à avoir et surtout des mauvaises pratiques à éviter. en particulier il aurait été sans doute plus simple de ne pas inserer de référence croisées dans les classes de base, cela aurait évité bien des problèmes avec la base de données. De même il est très important lors de la configuration d'Hibernate de faire très attentions au noms de colonnes et à la gestion des clés étrangère. Pour ce qui est de l'API REST, il serai bénéfique de simplifier les possibilités d'ajout de nouvelles entrées dans la base de donnée et permettre la référence d'un objet déjà existant via son identifiant. 
+
+
+Enfin pour ce qui est des pages de gestions certaines serai plutôt simple à ajouter, mais il serai aussi important d'ajouter des options de recherche d'évènement ou d'artiste (et effectuer la recherche en utilisant les possibilités du langage SQL) ainsi que de permettre aux administrateurs de générer automatiquement des billets pour chaque évènement.
