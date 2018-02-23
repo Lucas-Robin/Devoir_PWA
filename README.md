@@ -14,6 +14,8 @@ Ensuite, une API REST à été implémentée pour gérer l'intégralité de ces 
 
 Les fichiers de configuration pour chacune des classes à sauvegarder ont été générés automatiquement à l'aide d'un plugin Eclipse dédié, puis modifié un à un manuellement. Dans un premier temps, tous les noms de colonnes on été modifiés afin de les rendre plus compréhensibles et pour simplifier le debuggage de la base de données. Ensuite il a fallu régler plusieurs problèmes notament désactiver l'option *lazy* et ajouter l'option pour la suppression en cascade. De plus à cause d'une erreur de nommage de certaines clés étrangères, un temps important à du être consacré au débuggage de l'application, il se trouve en fait que certaines clés étrangère avait simplement le même nom que la colonne qu'elle référençait dans l'autre table.
 
+Un problème que j'ai rencontré lors de la réalisation de cette API est le cas des classes avec des références croisés (par exemple `Show` et `Place`), en effet lorsque l'on tente d'ajouter un objet `Show` avec une référence vers un objet `Place`, il faudrait ajouter directement ajouter dans l'objet JSON/XML envoyé l'autre objet, mais cela crée un nouvel objet au lieu d'en reférencer un déjà existant, de plus à cause du référencement dans les deux sens cela crée une boucle infinie. Le solution serai de permettre uniquement l'ajout d'un nouvel objet sans référence vers un autre puis permettre d'ajouter une référence simplement en demandant l'identifiant de l'objet à référencer.
+
 [Fichier de configuration Hibernate](src/hibernate.cfg.xml)
 
 ## API REST
