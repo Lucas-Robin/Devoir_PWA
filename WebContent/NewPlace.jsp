@@ -21,6 +21,8 @@
       InfosPMR: <input type="text" name="infosPMR">
       Commentary: <input type="text" name="commentary">
       Capacity: <input type="text" name="capacity">
+      Latitude :<input type="text" name="lat">
+      Longitude :<input type="text" name="lon">
       <input type="submit" value="Submit changes">
   </form>
 

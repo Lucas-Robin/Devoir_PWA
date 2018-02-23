@@ -38,6 +38,9 @@
           Show list
         </th>
         <th>
+          Coordonnées
+        </th>
+        <th>
           Delete
         </th>
         <th>
@@ -74,6 +77,9 @@
             <c:forEach items="${place.showList}" var="show">
               ${show.name}, 
             </c:forEach>
+          </td>
+          <td>
+            lat: ${place.lat}  lon:${place.lon} 
           </td>
           <td>
             <form action="/Devoir_PWA/DeletePlace" method="post">

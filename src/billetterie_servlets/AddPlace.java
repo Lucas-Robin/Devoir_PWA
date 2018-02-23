@@ -49,7 +49,8 @@ public class AddPlace extends HttpServlet {
    
     place = new Place(request.getParameter("type"), request.getParameter("name"), 
         Integer.parseInt(request.getParameter("capacity")), request.getParameter("phonenumeber"), 
-        request.getParameter("mail"), request.getParameter("infosPMR"), request.getParameter("commentary"));
+        request.getParameter("mail"), request.getParameter("infosPMR"), request.getParameter("commentary"), 
+        Double.parseDouble(request.getParameter("lat")), Double.parseDouble(request.getParameter("lon")));
     
     session.save(place);
     

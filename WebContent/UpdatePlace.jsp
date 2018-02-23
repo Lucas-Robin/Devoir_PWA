@@ -17,6 +17,8 @@
       InfosPMR: <input type="text" name="infosPMR" value="${place.infosPMR}">
       Commentary: <input type="text" name="commentary" value="${place.commentary}">
       Capacity: <input type="text" name="capacity" value="${place.capacity}">
+      Latitude :<input type="text" name="lat" value="${place.lat}">
+      Longitude :<input type="text" name="lon" value="${place.lon}">
       <input type="hidden" value="${place.id}" name="placeID">
       <input type="submit" value="Submit changes">
   </form>

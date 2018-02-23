@@ -26,6 +26,12 @@
         <property name="commentary" type="java.lang.String">
             <column name="PLACE_COMMENTARY" />
         </property>
+        <property name="lat" type="java.lang.Double">
+            <column name="PLACE_LAT" />
+        </property>
+        <property name="lon" type="java.lang.Double">
+            <column name="PLACE_LON" />
+        </property>
         <property name="capacity" type="int">
             <column name="PLACE_CAPACITY" />
         </property>

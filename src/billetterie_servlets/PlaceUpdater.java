@@ -59,6 +59,8 @@ public class PlaceUpdater extends HttpServlet {
     place.setName(request.getParameter("name"));
     place.setPhonenumber(request.getParameter("phonenumber"));
     place.setType(request.getParameter("type"));
+    place.setLat(Double.parseDouble(request.getParameter("lat")));
+    place.setLon(Double.parseDouble(request.getParameter("lon")));
 
     session.evict(place);
     session.update(place);

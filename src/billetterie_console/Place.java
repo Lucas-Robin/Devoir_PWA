@@ -19,6 +19,7 @@ public class Place
          		 commentary;
   private int capacity;
   private Set<Show> showList;
+  private double lat, lon;
   
   /************************ Constructors ************************/
   // Constructor for common use
@@ -33,6 +34,41 @@ public class Place
     this.commentary = commentary;
     this.capacity = capacity;
     this.showList = new HashSet<Show>();
+  }
+  
+  public Place(String type, String name, int capacity, String phonenumeber, String mail, String infosPMR, String commentary, double lat, double lon)
+  {
+    super();
+    this.lat = lat;
+    this.lon = lon;
+    this.type = type;
+    this.name = name;
+    this.phonenumber = phonenumeber;
+    this.mail = mail;
+    this.infosPMR = infosPMR;
+    this.commentary = commentary;
+    this.capacity = capacity;
+    this.showList = new HashSet<Show>();
+  }
+
+  public double getLat()
+  {
+    return lat;
+  }
+
+  public void setLat(double lat)
+  {
+    this.lat = lat;
+  }
+
+  public double getLon()
+  {
+    return lon;
+  }
+
+  public void setLon(double lon)
+  {
+    this.lon = lon;
   }
 
   public Place(String type, String name, String phonenumber, String mail, String infosPMR, String commentary,
