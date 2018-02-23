@@ -450,6 +450,12 @@
         <dependent-module archiveName="cxf-rt-frontend-jaxws-3.2.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/Mi5terfake/Documents/INGE_INFO/PWA/apache-cxf-3.2.1/lib/cxf-rt-frontend-jaxws-3.2.1.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="TP_JSON.war" deploy-path="/WEB-INF/lib" handle="module:/resource/TP_JSON/TP_JSON">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="json-20171018.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/Mi5terfake/Documents/INGE_INFO/json-20171018.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="Devoir_PWA"/>
         <property name="java-output-path" value="/Devoir_PWA/build/classes"/>
     </wb-module>

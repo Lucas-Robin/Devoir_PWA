@@ -41,6 +41,9 @@
           Coordonnées
         </th>
         <th>
+          How to get there
+        </th>
+        <th>
           Delete
         </th>
         <th>
@@ -80,6 +83,13 @@
           </td>
           <td>
             lat: ${place.lat}  lon:${place.lon} 
+          </td>
+          <td>
+            <form action="/Devoir_PWA/BikeSearch" method="post">
+              <input type="hidden" value="${place.lon}" name="lon">
+              <input type="hidden" value="${place.lat}" name="lat">
+              <input type="submit" value="Find nearest bike station">
+            </form>
           </td>
           <td>
             <form action="/Devoir_PWA/DeletePlace" method="post">

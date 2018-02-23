@@ -3,6 +3,7 @@
 	<name>Devoir_PWA</name>
 	<comment></comment>
 	<projects>
+		<project>TP_JSON</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
