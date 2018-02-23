@@ -69,6 +69,11 @@
         </tr>
       </c:forEach>
     </table>
+    
+    <form action="/Devoir_PWA/NewBand.jsp" method="post">
+      <input type="submit" value="Add new band">
+    </form>
+    
     <h1>
       Artists :
     </h1>
@@ -145,6 +150,11 @@
           </td>
         </tr>
       </c:forEach>
-    </table>  
+    </table>
+    <form action="/Devoir_PWA/NewArtist.jsp" method="GET">
+      <input type="submit" value="Add new artist">
+    </form>
+    
+    
   </body>
 </html>

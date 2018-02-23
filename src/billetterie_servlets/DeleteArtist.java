@@ -55,8 +55,8 @@ public class DeleteArtist extends HttpServlet {
     
     System.out.println("Deleting artist : " + a);
     
-    RequestDispatcher dispatcher = context.getRequestDispatcher("/ListArtists");
-    dispatcher.forward(request, response);
+
+    response.sendRedirect("/Devoir_PWA/ListArtists");
   }
 
 }

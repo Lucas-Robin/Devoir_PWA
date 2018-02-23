@@ -96,7 +96,12 @@ public class ShowManager
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     Transaction tx = session.beginTransaction();
     System.out.println("----invoking addShow, Show name is: " + show.getName());
-        
+    
+    if(show.getPlace() != null)
+    {
+      session.save(show.getPlace());
+    }
+    
     session.save(show);
     tx.commit();
     

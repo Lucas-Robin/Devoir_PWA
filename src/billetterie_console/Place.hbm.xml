@@ -29,9 +29,9 @@
         <property name="capacity" type="int">
             <column name="PLACE_CAPACITY" />
         </property>
-        <set name="showList" table="SHOW" inverse="false" lazy="false">
+        <set name="showList" table="SHOW" inverse="false" lazy="false" cascade="delete">
             <key>
-                <column name="SHOW_ID" />
+                <column name="SHOW_REF" />
             </key>
             <one-to-many class="billetterie_console.Show" />
         </set>

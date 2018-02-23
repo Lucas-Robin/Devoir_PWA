@@ -23,13 +23,13 @@
         <property name="price" type="int">
             <column name="TICKET_PRICE" />
         </property>
-        <many-to-one name="show" class="billetterie_console.Show" fetch="join">
+        <many-to-one name="show" class="billetterie_console.Show" fetch="join" cascade="delete">
             <column name="TICKET_SHOW" />
         </many-to-one>
         <property name="buyDate" type="java.time.LocalDate">
             <column name="TICKET_BUYDATE" />
         </property>
-        <many-to-one name="buyer" class="billetterie_console.Client" fetch="join">
+        <many-to-one name="buyer" class="billetterie_console.Client" fetch="join" cascade="delete">
             <column name="TICKET_BUYER" />
         </many-to-one>
     </class>

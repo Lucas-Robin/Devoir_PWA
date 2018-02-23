@@ -41,7 +41,7 @@
       "role": "Guitarist",
       "sex": "M"
     }]
-  }}]
+  }},
 {"PersonArtist":
   {
       "country": "USA",
@@ -52,4 +52,34 @@
       "role": "Guitarist",
       "sex": "M"
     }
-}
+},
+{"Show":{
+  "name": "Totorro@Elysée Montmartre",
+  "commentary": "blablabla, super concert, blablabla",
+  "place":  {
+    "type": "Salle de concert",  
+    "name": "Elysée Montmartre", 
+    "phonenumber": "0147200001",  
+    "mail": "blabla@mail.com", 
+    "infosPMR": "C'est chaud", 
+    "commentary": "blabla",
+    "capacity": "1300"}
+}},
+{"Place":  {
+    "type": "Salle de concert",  
+    "name": "Divan du monde", 
+    "phonenumber": "0147200001",  
+    "mail": "blabla@mail.com", 
+    "infosPMR": "", 
+    "commentary": "blabla",
+    "capacity": "490"
+}},
+{"Place":  {
+    "type": "Salle de concert",  
+    "name": "Bataclan", 
+    "phonenumber": "0147200001",  
+    "mail": "blabla@mail.com", 
+    "infosPMR": "", 
+    "commentary": "blabla",
+    "capacity": "1500"
+}}]

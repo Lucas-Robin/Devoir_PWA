@@ -7,9 +7,9 @@
         <key>
             <column name="ARTIST_ID" />
         </key>
-        <set name="members" table="ARTIST" inverse="false" lazy="false">
+        <set name="members" table="ARTIST" inverse="false" lazy="false" cascade="delete">
             <key>
-                <column name="BAND_ID" />
+                <column name="BAND_REF" />
             </key>
             <one-to-many class="billetterie_console.PersonArtist" />
         </set>

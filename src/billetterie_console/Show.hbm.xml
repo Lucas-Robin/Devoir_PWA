@@ -17,21 +17,21 @@
         <property name="date" type="timestamp">
             <column name="SHOW_DATE" />
         </property>
-        <set name="artistsList" table="ARTIST" inverse="false" lazy="false">
+        <set name="artistsList" table="ARTIST" inverse="true" lazy="false" cascade="delete">
             <key>
-                <column name="ARTIST_ID" />
+                <column name="ARTIST_REF" />
             </key>
             <one-to-many class="billetterie_console.Artist" />
         </set>
-        <many-to-one name="organisator" class="billetterie_console.ShowOrganisator" fetch="join">
+        <many-to-one name="organisator" class="billetterie_console.ShowOrganisator" fetch="join" cascade="delete">
             <column name="SHOW_ORGANISATOR" />
         </many-to-one>
-        <many-to-one name="place" class="billetterie_console.Place" fetch="join">
+        <many-to-one name="place" class="billetterie_console.Place" fetch="join" cascade="delete">
             <column name="SHOW_PLACE" />
         </many-to-one>
-        <set name="ticketsList" table="TICKET" inverse="false" lazy="false">
+        <set name="ticketsList" table="TICKET" inverse="false" lazy="false" cascade="delete">
             <key>
-                <column name="TICKET_ID" />
+                <column name="TICKET_REF" />
             </key>
             <one-to-many class="billetterie_console.Ticket" />
         </set>
