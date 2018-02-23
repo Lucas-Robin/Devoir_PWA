@@ -13,3 +13,11 @@ Ensuite, une API REST à été implémentée pour gérer l'intégralité de ces 
 ## Hibernate
 
 Les fichiers de configuration pour chacune des classes à sauvegarder ont été générés automatiquement à l'aide d'un plugin Eclipse dédié, puis modifié un à un manuellement. Dans un premier temps, tous les noms de colonnes on été modifiés afin de les rendre plus compréhensibles et pour simplifier le debuggage de la base de données. Ensuite il a fallu régler plusieurs problèmes notament désactiver l'option *lazy* et ajouter l'option pour la suppression en cascade. De plus à cause d'une erreur de nommage de certaines clés étrangères, un temps important à du être consacré au débuggage de l'application, il se trouve en fait que certaines clés étrangère avait simplement le même nom que la colonne qu'elle référençait dans l'autre table.
+
+[Fichier de configuration Hibernate](src/hibernate.cfg.xml)
+
+## API REST
+
+Même si cela n'était pas demandé dans le sujet, l'intégralité des données à été rendu accessible et modifiable via une API REST, cela avait pour but de rendre plus facilement réalisable l'intégration avec d'autre webservices dédiés à la musique, ainsi que de permettre d'ajouter et supprimer facilement des entrées dans la base de données de l'application. Pour chaque classe du modèle de base, une classe "controleur" à été écrite.
+
+[Package comprennant les controleurs de l'API REST](src/billetterie_interfaceREST)
