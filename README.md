@@ -23,3 +23,16 @@ Un problème que j'ai rencontré lors de la réalisation de cette API est le cas
 Même si cela n'était pas demandé dans le sujet, l'intégralité des données à été rendu accessible et modifiable via une API REST, cela avait pour but de rendre plus facilement réalisable l'intégration avec d'autre webservices dédiés à la musique, ainsi que de permettre d'ajouter et supprimer facilement des entrées dans la base de données de l'application. Pour chaque classe du modèle de base, une classe "controleur" à été écrite.
 
 [Package comprennant les controleurs de l'API REST](src/billetterie_interfaceREST)
+
+## Les pages d'administration et d'accès utilisateur
+
+Cette partie étant la dernière à avoir été réalisée, je n'ai pas pu réaliser l'ensemble des pages demandées. Seuls 2 "Exemples" on été réalisés pour la gestion des artistes et des lieux d'accueil. 
+
+Ces pages fonctionnent de la manière suivante : la page principale est une liste (soit de tous les artistes soit de tous les lieux) avec pour chaque entrée la possibilité de la modifier, de la supprimer, ainsi qu'une plus générale pour ajouter un nouvel élément. La suppression supprime l'élément et actualise la page, la modification permet d'accèder à un formulaire pré-remplis avec les valeurs de chaque champs de l'objet à modifier et l'ajout propose simplement un formulaire vide.
+
+Cette architecture permet donc de proposer une utilisation simple mais en revanche implique un nombre important de servlets pour gerer chaque évènement. 
+
+Pour les lieux d'accueil, une option à aussi été ajouté à la liste pour trouver une station de vélo libre service à proximité via l'API JCDecaux.
+
+[Package contenant les servlets](src/billetterie_servlets)
+
