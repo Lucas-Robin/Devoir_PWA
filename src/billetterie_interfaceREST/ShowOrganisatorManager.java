@@ -17,6 +17,8 @@ import org.hibernate.Transaction;
 
 import billetterie_console.ShowOrganisator;
 
+
+// http://localhost:8080/Devoir_PWA/REST/ShowOrganisator/showorganisatormanager/
 @Path("/showorganisatormanager/")
 @Consumes({"application/JSON", "application/xml"})
 @Produces({"application/JSON", "application/xml"})

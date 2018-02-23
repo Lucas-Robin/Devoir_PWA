@@ -21,7 +21,7 @@ import org.hibernate.*;
 
 
 
-
+// Base URL : http://localhost:8080/Devoir_PWA/REST/Artist/artistmanager/
 @Path("/artistmanager/")
 @Consumes({"application/JSON", "application/xml"})
 @Produces({"application/JSON", "application/xml"})

@@ -22,6 +22,8 @@ import billetterie_console.Place;
 import billetterie_console.Show;
 import billetterie_console.ShowOrganisator;
 
+
+// http://localhost:8080/Devoir_PWA/REST/Show/showmanager/
 @Path("/showmanager/")
 @Consumes({"application/JSON", "application/xml"})
 @Produces({"application/JSON", "application/xml"})

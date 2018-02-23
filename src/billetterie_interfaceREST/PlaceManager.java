@@ -18,6 +18,7 @@ import org.hibernate.Transaction;
 import billetterie_console.Place;
 
 
+// http://localhost:8080/Devoir_PWA/REST/Place/placemanager/
 @Path("/placemanager/")
 @Consumes({"application/JSON", "application/xml"})
 @Produces({"application/JSON", "application/xml"})

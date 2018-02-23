@@ -17,6 +17,7 @@ import org.hibernate.Transaction;
 
 import billetterie_console.Client;
 
+// http://localhost:8080/Devoir_PWA/REST/Client/clientmanager/
 @Path("/clientmanager/")
 @Consumes({"application/JSON", "application/xml"})
 @Produces({"application/JSON", "application/xml"})
