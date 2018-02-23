@@ -26,7 +26,7 @@ Même si cela n'était pas demandé dans le sujet, l'intégralité des données 
 
 ## Les pages d'administration et d'accès utilisateur
 
-Cette partie étant la dernière à avoir été réalisée, je n'ai pas pu réaliser l'ensemble des pages demandées. Seuls 2 "Exemples" on été réalisés pour la gestion des artistes et des lieux d'accueil. 
+Cette partie étant la dernière à avoir été réalisée, je n'ai pas pu effectuer l'ensemble des pages demandées. Seuls 2 "Exemples" on été réalisés pour la gestion des artistes et des lieux d'accueil. 
 
 Ces pages fonctionnent de la manière suivante : la page principale est une liste (soit de tous les artistes soit de tous les lieux) avec pour chaque entrée la possibilité de la modifier, de la supprimer, ainsi qu'une plus générale pour ajouter un nouvel élément. La suppression supprime l'élément et actualise la page, la modification permet d'accèder à un formulaire pré-remplis avec les valeurs de chaque champs de l'objet à modifier et l'ajout propose simplement un formulaire vide.
 
@@ -34,5 +34,10 @@ Cette architecture permet donc de proposer une utilisation simple mais en revanc
 
 Pour les lieux d'accueil, une option à aussi été ajouté à la liste pour trouver une station de vélo libre service à proximité via l'API JCDecaux.
 
+L'implémentation des pages manquantes n'a pas été réalisé pour le moment par manque de temps mais consistera simplement en un copier/coller et une légère réécriture des pages déjà implémentées.
+
 [Package contenant les servlets](src/billetterie_servlets)
 
+# Conclusion et améliorations à apporter au projet. 
+
+Grâce à ce projet j'ai pu apprendre à développer et mettre en place des webservices avancés avec l'aide de JEE et de certain framework, il m'a permis de bien mieux comprendre le fonctionnement notament du framework Hibernate et de l'API Jax-RS et m'a permis d'en apprendre plus sur les bonnes pratiques à avoir et surtout des mauvaises pratiques à éviter. en particulier il aurait été sans doute plus simple de ne pas inserer de référence croisées dans les classes de base, cela aurait évité bien des problèmes avec la base de données. De même il est très important lors de la configuration d'Hibernate de faire très attentions au noms de colonnes et à la gestion des clés étrangère. Pour ce qui est de l'API REST, il serai bénéfique de simplifier les possibilités d'ajout de nouvelles entrées dans la base de donnée et permettre la référence d'un objet déjà existant via son identifiant. 
